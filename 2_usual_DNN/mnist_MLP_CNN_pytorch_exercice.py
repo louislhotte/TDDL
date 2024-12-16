@@ -56,8 +56,8 @@ for ii in range(10):
 plt.close()
 
 # define MLP model
-DATA_SIZE = TODO
-NUM_CLASSES = TODO
+DATA_SIZE = 784 # 28 * 28 → Nb de pixel en gros
+NUM_CLASSES = 10 # labels de 0 à 9
 NUM_HIDDEN_1 = 256 # try 512
 NUM_HIDDEN_2 = 256
 
