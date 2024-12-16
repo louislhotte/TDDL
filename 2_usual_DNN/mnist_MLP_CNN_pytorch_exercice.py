@@ -31,14 +31,14 @@ batch_size = 100
 train_loader = torch.utils.data.DataLoader(
                  dataset=train_set,
                  batch_size=batch_size,
-                 shuffle=TODO)
+                 shuffle=True)
 test_loader = torch.utils.data.DataLoader(
                 dataset=test_set,
                 batch_size=batch_size,
-                shuffle=TODO)
+                shuffle=True)
 
-print('total training batch number: {}'.format(TODO))
-print('total testing batch number: {}'.format(TODO))
+print('total training batch number: {}'.format(len(train_loader)))
+print('total testing batch number: {}'.format(len(test_loader)))
 
 # display some images
 # for an alternative see https://pytorch.org/tutorials/advanced/neural_style_tutorial.html
@@ -65,10 +65,10 @@ NUM_HIDDEN_2 = 256
 class RegSoftNet(nn.Module):
     def __init__(self):
         super(RegSoftNet, self).__init__()
-        self.fc = TODO
+        self.fc = nn.Linear(DATA_SIZE, NUM_CLASSES)
     def forward(self, x):
         x = x.view(-1, DATA_SIZE) # reshape the tensor
-        x = TODO
+        x = x.relu(self.fc(x))
         return x
 
 class MLPNet(nn.Module):
